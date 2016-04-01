@@ -17,18 +17,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        oldArray[4*mesher.imax + 4] = 1.0
-        initArray[6*mesher.imax + 3] = 1.0
-        initArray[8*mesher.imax + 3] = 1.0
-//        oldArray[6*mesher.imax + 3] = 1.0
-//        oldArray[mesher.imax + 2] = 1.0
-        
-        
-//        oldArray[2*mesher.imax + 33] = 1.0
-//        oldArray[4*mesher.imax + 33] = 1.0
-//        oldArray[5*mesher.imax + 33] = 1.0
-//        oldArray[6*mesher.imax + 33] = 1.0
-//        oldArray[mesher.imax + 33] = 1.0
+        initArray[(mesher.jmax/2)*(mesher.imax/2)+mesher.imax/2] = 1.0
+        initArray[(mesher.jmax/2)*(mesher.imax/2)+1+mesher.imax/2] = 1.0
+        initArray[(mesher.jmax/2)*(mesher.imax/2)-1+mesher.imax/2] = 1.0
+        initArray[(mesher.jmax/2)*(mesher.imax/2)-mesher.imax] = 1.0
+        initArray[(mesher.jmax/2)*(mesher.imax/2)+mesher.imax+mesher.imax/2] = 1.0
+    
         
         oldArray = initArray
         renderSolution(oldArray)

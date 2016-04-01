@@ -11,8 +11,8 @@ import Foundation
 struct mesher {
     static var dx = 1.0
     static var dy = 1.0
-    static var xmax = 100.0
-    static var ymax = 100.0
+    static var xmax = 1000.0
+    static var ymax = 1000.0
     
     static var imax: Int = Int(xmax/dx)
     static var jmax: Int = Int(ymax/dy)
