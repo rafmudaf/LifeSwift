@@ -10,27 +10,36 @@ import UIKit
 
 class ViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
-//    @IBOutlet weak var startButton: UIButton!
     
     var oldArray: [Double] = [Double](count: mesher.nmax, repeatedValue: 0.0)
-    
+    var initArray: [Double] = [Double](count: mesher.nmax, repeatedValue: 0.0)
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        oldArray[3] = 1.0
         
-        oldArray[mesher.imax + 3] = 1.0
-        oldArray[mesher.imax + 4] = 1.0
-        oldArray[mesher.imax + 5] = 1.0
-        oldArray[2*mesher.imax + 3] = 1.0
-        oldArray[4*mesher.imax + 3] = 1.0
-        oldArray[5*mesher.imax + 3] = 1.0
-        oldArray[6*mesher.imax + 3] = 1.0
-        oldArray[mesher.imax + 2] = 1.0
+//        oldArray[4*mesher.imax + 4] = 1.0
+        initArray[6*mesher.imax + 3] = 1.0
+        initArray[8*mesher.imax + 3] = 1.0
+//        oldArray[6*mesher.imax + 3] = 1.0
+//        oldArray[mesher.imax + 2] = 1.0
+        
+        
+//        oldArray[2*mesher.imax + 33] = 1.0
+//        oldArray[4*mesher.imax + 33] = 1.0
+//        oldArray[5*mesher.imax + 33] = 1.0
+//        oldArray[6*mesher.imax + 33] = 1.0
+//        oldArray[mesher.imax + 33] = 1.0
+        
+        oldArray = initArray
         renderSolution(oldArray)
     }
     
+    @IBAction func reset(sender: AnyObject) {
+        oldArray = initArray
+    }
+    
     @IBAction func startSolver() {
-        var timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(ViewController.solve), userInfo: nil, repeats: true)
+        NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(ViewController.solve), userInfo: nil, repeats: true)
     }
     
     func solve () {

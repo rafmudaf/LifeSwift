@@ -28,15 +28,30 @@
                                     <action selector="startSolver" destination="BYZ-38-t0r" eventType="touchUpInside" id="wYf-wq-SIS"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Wl-c3-1Bo">
+                                <rect key="frame" x="28" y="66" width="46" height="30"/>
+                                <state key="normal" title="RESET"/>
+                                <connections>
+                                    <action selector="reset:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DIv-Xd-PyP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Co-Xj-f8b">
+                                <rect key="frame" x="28" y="104" width="39" height="30"/>
+                                <state key="normal" title="STOP"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="5Wl-c3-1Bo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="8" id="6x4-hf-24P"/>
                             <constraint firstItem="iaU-9X-rCh" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="8y7-gc-07c"/>
                             <constraint firstItem="RZu-TX-0HM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="CY8-4U-nw8"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="RZu-TX-0HM" secondAttribute="bottom" id="I7y-Bx-7nZ"/>
+                            <constraint firstItem="5Wl-c3-1Bo" firstAttribute="top" secondItem="iaU-9X-rCh" secondAttribute="bottom" constant="8" id="ID7-gk-U21"/>
+                            <constraint firstItem="3Co-Xj-f8b" firstAttribute="top" secondItem="5Wl-c3-1Bo" secondAttribute="bottom" constant="8" id="O1A-UU-xN7"/>
                             <constraint firstItem="RZu-TX-0HM" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="coP-4u-e7l"/>
                             <constraint firstItem="iaU-9X-rCh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="8" id="iMX-xI-0Ai"/>
                             <constraint firstAttribute="trailing" secondItem="RZu-TX-0HM" secondAttribute="trailing" id="khZ-4v-MOr"/>
+                            <constraint firstItem="3Co-Xj-f8b" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="8" id="mqv-ZE-k10"/>
                         </constraints>
                     </view>
                     <connections>
