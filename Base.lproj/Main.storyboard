@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -21,41 +20,51 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RZu-TX-0HM">
                                 <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iaU-9X-rCh">
-                                <rect key="frame" x="28" y="28" width="30" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iaU-9X-rCh" customClass="lifeButton" customModule="life" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="60" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="6HT-ce-beZ"/>
+                                </constraints>
                                 <state key="normal" title="GO"/>
                                 <connections>
                                     <action selector="startSolver" destination="BYZ-38-t0r" eventType="touchUpInside" id="wYf-wq-SIS"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Wl-c3-1Bo">
-                                <rect key="frame" x="28" y="66" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Wl-c3-1Bo" customClass="lifeButton" customModule="life" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="66" width="60" height="30"/>
                                 <state key="normal" title="RESET"/>
                                 <connections>
                                     <action selector="reset:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DIv-Xd-PyP"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Co-Xj-f8b">
-                                <rect key="frame" x="28" y="104" width="39" height="30"/>
-                                <state key="normal" title="STOP"/>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RYc-EA-8JI" customClass="lifeLabel" customModule="life" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="104" width="60" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="5Wl-c3-1Bo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="8" id="6x4-hf-24P"/>
                             <constraint firstItem="iaU-9X-rCh" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="8y7-gc-07c"/>
                             <constraint firstItem="RZu-TX-0HM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="CY8-4U-nw8"/>
+                            <constraint firstItem="RYc-EA-8JI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="D6z-xK-vPc"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="RZu-TX-0HM" secondAttribute="bottom" id="I7y-Bx-7nZ"/>
                             <constraint firstItem="5Wl-c3-1Bo" firstAttribute="top" secondItem="iaU-9X-rCh" secondAttribute="bottom" constant="8" id="ID7-gk-U21"/>
-                            <constraint firstItem="3Co-Xj-f8b" firstAttribute="top" secondItem="5Wl-c3-1Bo" secondAttribute="bottom" constant="8" id="O1A-UU-xN7"/>
+                            <constraint firstItem="RYc-EA-8JI" firstAttribute="top" secondItem="5Wl-c3-1Bo" secondAttribute="bottom" constant="8" id="JZF-Y9-skB"/>
+                            <constraint firstItem="5Wl-c3-1Bo" firstAttribute="width" secondItem="RYc-EA-8JI" secondAttribute="width" id="NZF-96-zZG"/>
+                            <constraint firstItem="iaU-9X-rCh" firstAttribute="height" secondItem="5Wl-c3-1Bo" secondAttribute="height" id="OrM-Qc-XxU"/>
+                            <constraint firstItem="iaU-9X-rCh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="azE-C3-Yvc"/>
+                            <constraint firstItem="5Wl-c3-1Bo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="c2E-y4-IKE"/>
+                            <constraint firstItem="5Wl-c3-1Bo" firstAttribute="height" secondItem="RYc-EA-8JI" secondAttribute="height" id="cRc-js-sRZ"/>
                             <constraint firstItem="RZu-TX-0HM" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="coP-4u-e7l"/>
-                            <constraint firstItem="iaU-9X-rCh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="8" id="iMX-xI-0Ai"/>
+                            <constraint firstItem="iaU-9X-rCh" firstAttribute="width" secondItem="5Wl-c3-1Bo" secondAttribute="width" id="jSO-o7-wsb"/>
                             <constraint firstAttribute="trailing" secondItem="RZu-TX-0HM" secondAttribute="trailing" id="khZ-4v-MOr"/>
-                            <constraint firstItem="3Co-Xj-f8b" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="8" id="mqv-ZE-k10"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="RZu-TX-0HM" id="Amd-Fe-AbY"/>
+                        <outlet property="iterationLabel" destination="RYc-EA-8JI" id="VEh-dE-C5h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
