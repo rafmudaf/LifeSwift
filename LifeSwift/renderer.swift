@@ -10,24 +10,34 @@ import Foundation
 import UIKit
 
 private let rgbColorSpace = CGColorSpaceCreateDeviceRGB()
-private let bitmapInfo:CGBitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.PremultipliedFirst.rawValue)
+private let bitmapInfo:CGBitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.premultipliedFirst.rawValue)
 
-private func imageFromARGB32Bitmap(pixels:[PixelData], width:Int, height:Int)->UIImage
-{
+private func imageFromARGB32Bitmap(pixels:[PixelData], width:Int, height:Int) -> UIImage {
     let bitsPerComponent:Int = 8
     let bitsPerPixel:Int = 32
     
     var data = pixels // Copy to mutable []
-    let providerRef = CGDataProviderCreateWithCFData(NSData(bytes: &data, length: data.count * sizeof(PixelData)))
-    
-    let cgim = CGImageCreate(width, height, bitsPerComponent, bitsPerPixel, width * Int(sizeof(PixelData)), rgbColorSpace,	bitmapInfo, providerRef, nil, false, CGColorRenderingIntent.RenderingIntentDefault)
-    
-    return UIImage(CGImage: cgim!);
+    let providerRef = CGDataProvider(data: NSData(bytes: &data, length: data.count * MemoryLayout<PixelData>.size))
+
+    let cgim = CGImage(
+        width: width,
+        height: height,
+        bitsPerComponent: bitsPerComponent,
+        bitsPerPixel: bitsPerPixel,
+        bytesPerRow: width * MemoryLayout<PixelData>.size,
+        space: rgbColorSpace,
+        bitmapInfo: bitmapInfo,
+        provider: providerRef!,
+        decode: nil,
+        shouldInterpolate: false,
+        intent: CGColorRenderingIntent.defaultIntent
+    )
+
+    return UIImage(cgImage: cgim!);
 }
 
-func render(solution : [Double]) -> UIImage
-{
-    var pixelArray = [PixelData](count: solution.count, repeatedValue: PixelData(a: 255, r:255, g: 255, b: 255));
+func render(solution : [Double]) -> UIImage {
+    var pixelArray = Array(repeating: PixelData(a: 255, r:255, g: 255, b: 255), count: solution.count)
     let numCells: Int = solution.count
     
     for i in 0..<numCells
@@ -37,7 +47,7 @@ func render(solution : [Double]) -> UIImage
         pixelArray[i].b = UInt8(Double(pixelArray[i].b)*solution[i])
     }
     
-    let outputImage = imageFromARGB32Bitmap(pixelArray, width: mesher.imax, height: mesher.jmax)
+    let outputImage = imageFromARGB32Bitmap(pixels: pixelArray, width: mesher.imax, height: mesher.jmax)
     
     return outputImage;
 }
@@ -48,8 +58,7 @@ private func exp(a: Int, _ b: Double) -> Double {
 
 private func nonZeroMin(array: [Double]) -> Double {
     let len: Int  = array.count
-    var min: Double = array.maxElement()!
-    
+    var min: Double = array.max()!
     for i in 0..<len {
         if array[i] < min && array[i] > 0 {
             min = array[i]
@@ -58,8 +67,7 @@ private func nonZeroMin(array: [Double]) -> Double {
     return min
 }
 
-struct PixelData
-{
+struct PixelData {
     var a:UInt8 = 254
     var r:UInt8
     var g:UInt8

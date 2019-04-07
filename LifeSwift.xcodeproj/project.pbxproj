@@ -12,6 +12,10 @@
 		402B300822580CF800737A88 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 402B300622580CF800737A88 /* Main.storyboard */; };
 		402B300A22580CFA00737A88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 402B300922580CFA00737A88 /* Assets.xcassets */; };
 		402B300D22580CFA00737A88 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 402B300B22580CFA00737A88 /* LaunchScreen.storyboard */; };
+		4078AE9622581611002E5817 /* lifeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4078AE9222581611002E5817 /* lifeButton.swift */; };
+		4078AE9722581611002E5817 /* mesher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4078AE9322581611002E5817 /* mesher.swift */; };
+		4078AE9822581611002E5817 /* renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4078AE9422581611002E5817 /* renderer.swift */; };
+		4078AE9922581611002E5817 /* lifeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4078AE9522581611002E5817 /* lifeLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,10 @@
 		402B300922580CFA00737A88 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		402B300C22580CFA00737A88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		402B300E22580CFA00737A88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4078AE9222581611002E5817 /* lifeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lifeButton.swift; sourceTree = "<group>"; };
+		4078AE9322581611002E5817 /* mesher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mesher.swift; sourceTree = "<group>"; };
+		4078AE9422581611002E5817 /* renderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = renderer.swift; sourceTree = "<group>"; };
+		4078AE9522581611002E5817 /* lifeLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lifeLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +62,10 @@
 		402B300122580CF800737A88 /* LifeSwift */ = {
 			isa = PBXGroup;
 			children = (
+				4078AE9222581611002E5817 /* lifeButton.swift */,
+				4078AE9522581611002E5817 /* lifeLabel.swift */,
+				4078AE9322581611002E5817 /* mesher.swift */,
+				4078AE9422581611002E5817 /* renderer.swift */,
 				402B300222580CF800737A88 /* AppDelegate.swift */,
 				402B300422580CF800737A88 /* ViewController.swift */,
 				402B300622580CF800737A88 /* Main.storyboard */,
@@ -135,8 +147,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4078AE9922581611002E5817 /* lifeLabel.swift in Sources */,
 				402B300522580CF800737A88 /* ViewController.swift in Sources */,
+				4078AE9622581611002E5817 /* lifeButton.swift in Sources */,
 				402B300322580CF800737A88 /* AppDelegate.swift in Sources */,
+				4078AE9822581611002E5817 /* renderer.swift in Sources */,
+				4078AE9722581611002E5817 /* mesher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

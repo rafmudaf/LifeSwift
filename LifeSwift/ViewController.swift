@@ -11,8 +11,8 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     
-    var oldArray: [Double] = [Double](count: mesher.nmax, repeatedValue: 1.0)
-    var initArray: [Double] = [Double](count: mesher.nmax, repeatedValue: 1.0)
+    var oldArray = Array(repeating: 1.0, count: mesher.nmax)
+    var initArray = Array(repeating: 1.0, count: mesher.nmax)
     @IBOutlet weak var iterationLabel: lifeLabel!
     var iteration: Int = 0
 
@@ -30,10 +30,9 @@ class ViewController: UIViewController {
         initArray[(mesher.jmax/2)*(mesher.imax/2)-1+mesher.imax/2] = 0.0
         initArray[(mesher.jmax/2)*(mesher.imax/2)-mesher.imax/2] = 0.0
         initArray[(mesher.jmax/2)*(mesher.imax/2)+mesher.imax+mesher.imax/2] = 0.0
-    
-        
+
         oldArray = initArray
-        renderSolution(oldArray)
+        renderSolution(solution: oldArray)
     }
     
     @IBAction func reset(sender: AnyObject) {
@@ -42,12 +41,12 @@ class ViewController: UIViewController {
     }
     
     @IBAction func startSolver() {
-        NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(ViewController.solve), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ViewController.solve), userInfo: nil, repeats: true)
     }
     
-    func solve () {
-        var newArray: [Double] = [Double](count: mesher.nmax, repeatedValue: 0.0)
-
+    @objc func solve () {
+        var newArray = Array(repeating: 0.0, count: mesher.nmax)
+        
         for i in 0..<oldArray.count {
             var count: Double = 0
 
@@ -55,7 +54,7 @@ class ViewController: UIViewController {
             let right = (i+1)%(mesher.imax) == 0
             let bottom = i/mesher.imax == (mesher.imax-1)
             let left = i%mesher.imax == 0
-            
+
             if (!top && !right && !bottom && !left) {
                 let leftdown = i-mesher.imax-1
                 let left = i-1
@@ -65,7 +64,7 @@ class ViewController: UIViewController {
                 let right = i+1
                 let rightdown = i-mesher.imax+1
                 let down = i-mesher.imax
-                
+
                 count += oldArray[leftdown]
                 count += oldArray[left]
                 count += oldArray[leftup]
@@ -75,37 +74,36 @@ class ViewController: UIViewController {
                 count += oldArray[rightdown]
                 count += oldArray[down]
             }
-            
+
             // Any live cell with fewer than two live neighbours dies, as if caused by under-population.
-            
-            
-            
+            // cells are initialized dead
+
             // Any live cell with two or three live neighbours lives on to the next generation.
             if ((count == 2 || count == 3) && oldArray[i] == 1.0) {
                 newArray[i] = 1.0
             }
-            
+
             // Any live cell with more than three live neighbours dies, as if by over-population.
-            
-            
+            // cells are initialized dead
+
             // Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
             if (count == 3 && oldArray[i] == 0.0) {
                 newArray[i] = 1.0
             }
         }
+
         self.iteration = self.iteration + 1
         
         if (self.iteration%1 == 0) {
             iterationLabel.text = String(format: "%i", self.iteration)
         }
         
-        renderSolution(newArray)
+        renderSolution(solution: newArray)
+
         oldArray = newArray
-    
     }
     
     func renderSolution(solution: [Double]) {
-        self.imageView.image = render(solution)
-        
+        self.imageView.image = render(solution: solution)
     }
 }

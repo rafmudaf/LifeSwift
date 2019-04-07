@@ -15,9 +15,9 @@ class lifeLabel: UILabel {
         super.init(coder: aDecoder)!
         self.font = UIFont(name: "Helvetica Nueu", size: 20.0)
         
-        self.tintColor = UIColor.blueColor()
+        self.tintColor = UIColor.blue
         
-        self.backgroundColor = UIColor.grayColor()
+        self.backgroundColor = UIColor.gray
 //        self.layer.borderColor = UIColor.grayColor().CGColor
 //        self.layer.borderWidth = 2
         self.layer.cornerRadius = 4
