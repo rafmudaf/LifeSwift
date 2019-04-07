@@ -13,16 +13,17 @@ private let rgbColorSpace = CGColorSpaceCreateDeviceRGB()
 private let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.premultipliedFirst.rawValue)
 
 private struct PixelData {
-    var a:UInt8 = 254
-    var r:UInt8
-    var g:UInt8
-    var b:UInt8
+    // 4 bytes
+    var a: UInt8 = 254
+    var r: UInt8
+    var g: UInt8
+    var b: UInt8
 }
 
 private func imageFromARGB32Bitmap(pixels: [PixelData], width: Int, height: Int) -> UIImage {
-    let bitsPerComponent:Int = 8
-    let bitsPerPixel:Int = 32
-    
+    let bitsPerComponent: Int = 8
+    let bitsPerPixel: Int = 32
+
     var data = pixels // Copy to mutable []
     let providerRef = CGDataProvider(data: NSData(bytes: &data, length: data.count * MemoryLayout<PixelData>.size))
 
@@ -31,7 +32,7 @@ private func imageFromARGB32Bitmap(pixels: [PixelData], width: Int, height: Int)
         height: height,
         bitsPerComponent: bitsPerComponent,
         bitsPerPixel: bitsPerPixel,
-        bytesPerRow: width * MemoryLayout<PixelData>.size,
+        bytesPerRow: width * MemoryLayout<PixelData>.stride,
         space: rgbColorSpace,
         bitmapInfo: bitmapInfo,
         provider: providerRef!,
