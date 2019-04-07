@@ -15,7 +15,6 @@
 		4078AE9622581611002E5817 /* lifeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4078AE9222581611002E5817 /* lifeButton.swift */; };
 		4078AE9722581611002E5817 /* mesher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4078AE9322581611002E5817 /* mesher.swift */; };
 		4078AE9822581611002E5817 /* renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4078AE9422581611002E5817 /* renderer.swift */; };
-		4078AE9922581611002E5817 /* lifeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4078AE9522581611002E5817 /* lifeLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,7 +28,6 @@
 		4078AE9222581611002E5817 /* lifeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lifeButton.swift; sourceTree = "<group>"; };
 		4078AE9322581611002E5817 /* mesher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mesher.swift; sourceTree = "<group>"; };
 		4078AE9422581611002E5817 /* renderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = renderer.swift; sourceTree = "<group>"; };
-		4078AE9522581611002E5817 /* lifeLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lifeLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +61,6 @@
 			isa = PBXGroup;
 			children = (
 				4078AE9222581611002E5817 /* lifeButton.swift */,
-				4078AE9522581611002E5817 /* lifeLabel.swift */,
 				4078AE9322581611002E5817 /* mesher.swift */,
 				4078AE9422581611002E5817 /* renderer.swift */,
 				402B300222580CF800737A88 /* AppDelegate.swift */,
@@ -147,7 +144,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4078AE9922581611002E5817 /* lifeLabel.swift in Sources */,
 				402B300522580CF800737A88 /* ViewController.swift in Sources */,
 				4078AE9622581611002E5817 /* lifeButton.swift in Sources */,
 				402B300322580CF800737A88 /* AppDelegate.swift in Sources */,

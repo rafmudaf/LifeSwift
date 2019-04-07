@@ -11,25 +11,26 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     
-    var oldArray = Array(repeating: 1.0, count: mesher.nmax)
-    var initArray = Array(repeating: 1.0, count: mesher.nmax)
-    @IBOutlet weak var iterationLabel: lifeLabel!
+    var oldArray = Array(repeating: 0.0, count: mesher.nmax)
+    var initArray = Array(repeating: 0.0, count: mesher.nmax)
+    @IBOutlet weak var iterationLabel: lifeButton!
+    
     var iteration: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        iterationLabel.text = "0"
+        iterationLabel.setTitle("0", for: .normal)
 
         for i in 0..<300 {
-            initArray[(mesher.jmax/2)*(mesher.imax/2)+i] = 0.0
+            initArray[(mesher.jmax/2)*(mesher.imax/2)+i] = 1.0
         }
-        initArray[(mesher.jmax/2)*(mesher.imax/2)+mesher.imax/2] = 0.0
-        initArray[(mesher.jmax/2)*(mesher.imax/2)+1+mesher.imax/2] = 0.0
-        initArray[(mesher.jmax/2)*(mesher.imax/2)-1-mesher.imax/2] = 0.0
-        initArray[(mesher.jmax/2)*(mesher.imax/2)-1+mesher.imax/2] = 0.0
-        initArray[(mesher.jmax/2)*(mesher.imax/2)-mesher.imax/2] = 0.0
-        initArray[(mesher.jmax/2)*(mesher.imax/2)+mesher.imax+mesher.imax/2] = 0.0
+//        initArray[(mesher.jmax/2)*(mesher.imax/2)+mesher.imax/2] = 0.0
+//        initArray[(mesher.jmax/2)*(mesher.imax/2)+1+mesher.imax/2] = 0.0
+//        initArray[(mesher.jmax/2)*(mesher.imax/2)-1-mesher.imax/2] = 0.0
+//        initArray[(mesher.jmax/2)*(mesher.imax/2)-1+mesher.imax/2] = 0.0
+//        initArray[(mesher.jmax/2)*(mesher.imax/2)-mesher.imax/2] = 0.0
+//        initArray[(mesher.jmax/2)*(mesher.imax/2)+mesher.imax+mesher.imax/2] = 0.0
 
         oldArray = initArray
         renderSolution(solution: oldArray)
@@ -51,7 +52,7 @@ class ViewController: UIViewController {
         self.iteration = self.iteration + 1
 
         if (self.iteration%1 == 0) {
-            iterationLabel.text = String(format: "%i", self.iteration)
+            iterationLabel.setTitle(String(format: "%i", self.iteration), for: .normal)
         }
 
         renderSolution(solution: results)

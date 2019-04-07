@@ -23,58 +23,101 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RZu-TX-0HM">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="702"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iaU-9X-rCh" customClass="lifeButton" customModule="LifeSwift" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="52" width="250" height="30"/>
-                                <state key="normal" title="GO"/>
+                                <rect key="frame" x="30" y="754" width="30" height="30"/>
+                                <state key="normal" title="∞">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="startSolver" destination="BYZ-38-t0r" eventType="touchUpInside" id="wYf-wq-SIS"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Wl-c3-1Bo" customClass="lifeButton" customModule="LifeSwift" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="90" width="250" height="30"/>
-                                <state key="normal" title="RESET"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w40-or-hoF" customClass="lifeButton" customModule="LifeSwift" customModuleProvider="target">
+                                <rect key="frame" x="192" y="754" width="30" height="30"/>
+                                <state key="normal" title="1">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
-                                    <action selector="resetWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Sis-fn-afg"/>
+                                    <action selector="startSolver" destination="BYZ-38-t0r" eventType="touchUpInside" id="Q7M-hj-LMY"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RYc-EA-8JI" customClass="lifeLabel" customModule="LifeSwift" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="128" width="250" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rg0-In-Uzl" customClass="lifeButton" customModule="LifeSwift" customModuleProvider="target">
+                                <rect key="frame" x="354" y="754" width="30" height="30"/>
+                                <state key="normal" title="||">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="startSolver" destination="BYZ-38-t0r" eventType="touchUpInside" id="UEN-Cl-i9T"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hC7-C9-rHR" customClass="lifeButton" customModule="LifeSwift" customModuleProvider="target">
+                                <rect key="frame" x="27.5" y="808" width="35" height="30"/>
+                                <state key="normal" title="reset">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="resetWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="awg-Vj-bgo"/>
+                                    <action selector="startSolver" destination="BYZ-38-t0r" eventType="touchUpInside" id="Cn6-Qq-cAa"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a9v-ip-ZKc" customClass="lifeButton" customModule="LifeSwift" customModuleProvider="target">
+                                <rect key="frame" x="354" y="808" width="30" height="30"/>
+                                <state key="normal" title="add">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="startSolver" destination="BYZ-38-t0r" eventType="touchUpInside" id="O2X-Mu-AYr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TyP-WQ-ZUz" customClass="lifeButton" customModule="LifeSwift" customModuleProvider="target">
+                                <rect key="frame" x="192" y="808" width="30" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="250" id="xpR-ye-GLH"/>
+                                    <constraint firstAttribute="height" constant="30" id="iC2-Ng-dMq"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <state key="normal" title="0">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="startSolver" destination="BYZ-38-t0r" eventType="touchUpInside" id="KGI-Il-sdV"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="iaU-9X-rCh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="0X1-EL-CYQ"/>
+                            <constraint firstItem="w40-or-hoF" firstAttribute="top" secondItem="RZu-TX-0HM" secondAttribute="bottom" constant="8" id="52d-pU-axc"/>
                             <constraint firstItem="RZu-TX-0HM" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="6wR-tu-fZ9"/>
+                            <constraint firstItem="TyP-WQ-ZUz" firstAttribute="centerY" secondItem="hC7-C9-rHR" secondAttribute="centerY" id="9Db-Og-FCr"/>
+                            <constraint firstItem="TyP-WQ-ZUz" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="CPe-TJ-QYW"/>
                             <constraint firstItem="RZu-TX-0HM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="CY8-4U-nw8"/>
-                            <constraint firstItem="RYc-EA-8JI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="D6z-xK-vPc"/>
-                            <constraint firstItem="5Wl-c3-1Bo" firstAttribute="top" secondItem="iaU-9X-rCh" secondAttribute="bottom" constant="8" id="ID7-gk-U21"/>
-                            <constraint firstItem="RYc-EA-8JI" firstAttribute="top" secondItem="5Wl-c3-1Bo" secondAttribute="bottom" constant="8" id="JZF-Y9-skB"/>
-                            <constraint firstItem="5Wl-c3-1Bo" firstAttribute="width" secondItem="RYc-EA-8JI" secondAttribute="width" id="NZF-96-zZG"/>
-                            <constraint firstItem="iaU-9X-rCh" firstAttribute="height" secondItem="5Wl-c3-1Bo" secondAttribute="height" id="OrM-Qc-XxU"/>
-                            <constraint firstItem="iaU-9X-rCh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="azE-C3-Yvc"/>
-                            <constraint firstItem="5Wl-c3-1Bo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="c2E-y4-IKE"/>
-                            <constraint firstItem="5Wl-c3-1Bo" firstAttribute="height" secondItem="RYc-EA-8JI" secondAttribute="height" id="cRc-js-sRZ"/>
-                            <constraint firstItem="iaU-9X-rCh" firstAttribute="width" secondItem="5Wl-c3-1Bo" secondAttribute="width" id="jSO-o7-wsb"/>
+                            <constraint firstItem="Rg0-In-Uzl" firstAttribute="centerY" secondItem="w40-or-hoF" secondAttribute="centerY" id="Cgl-9Q-lW4"/>
+                            <constraint firstItem="w40-or-hoF" firstAttribute="height" secondItem="TyP-WQ-ZUz" secondAttribute="height" id="DdR-td-1eM"/>
+                            <constraint firstItem="Rg0-In-Uzl" firstAttribute="height" secondItem="TyP-WQ-ZUz" secondAttribute="height" id="DuL-NU-J0F"/>
+                            <constraint firstItem="hC7-C9-rHR" firstAttribute="top" secondItem="iaU-9X-rCh" secondAttribute="bottom" constant="24" id="Fcd-Tb-IDD"/>
+                            <constraint firstItem="a9v-ip-ZKc" firstAttribute="centerY" secondItem="TyP-WQ-ZUz" secondAttribute="centerY" id="Fxs-hu-Kkj"/>
+                            <constraint firstItem="Rg0-In-Uzl" firstAttribute="centerX" secondItem="a9v-ip-ZKc" secondAttribute="centerX" id="I2v-sF-j9Y"/>
+                            <constraint firstItem="w40-or-hoF" firstAttribute="centerX" secondItem="TyP-WQ-ZUz" secondAttribute="centerX" id="TgY-Rt-bu6"/>
+                            <constraint firstItem="iaU-9X-rCh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="TwM-7P-OSX"/>
+                            <constraint firstItem="iaU-9X-rCh" firstAttribute="height" secondItem="TyP-WQ-ZUz" secondAttribute="height" id="VjU-Xa-hIh"/>
+                            <constraint firstItem="iaU-9X-rCh" firstAttribute="centerX" secondItem="hC7-C9-rHR" secondAttribute="centerX" id="eCo-kk-jlc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Rg0-In-Uzl" secondAttribute="trailing" constant="30" id="hrw-mU-DIO"/>
                             <constraint firstAttribute="trailing" secondItem="RZu-TX-0HM" secondAttribute="trailing" id="khZ-4v-MOr"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="RZu-TX-0HM" secondAttribute="bottom" id="yjv-I8-8az"/>
+                            <constraint firstItem="w40-or-hoF" firstAttribute="centerY" secondItem="iaU-9X-rCh" secondAttribute="centerY" id="qzh-wM-tv6"/>
+                            <constraint firstItem="a9v-ip-ZKc" firstAttribute="height" secondItem="TyP-WQ-ZUz" secondAttribute="height" id="vz8-T2-EFD"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="TyP-WQ-ZUz" secondAttribute="bottom" constant="24" id="yjb-Io-uwZ"/>
+                            <constraint firstItem="hC7-C9-rHR" firstAttribute="height" secondItem="TyP-WQ-ZUz" secondAttribute="height" id="zdl-ws-dj7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="RZu-TX-0HM" id="Amd-Fe-AbY"/>
-                        <outlet property="iterationLabel" destination="RYc-EA-8JI" id="VEh-dE-C5h"/>
+                        <outlet property="iterationLabel" destination="TyP-WQ-ZUz" id="kVD-fk-ETE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="47.826086956521742" y="76.339285714285708"/>
         </scene>
     </scenes>
 </document>
