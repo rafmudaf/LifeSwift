@@ -22,19 +22,24 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        iterationLabel.setTitle("0", for: .normal)
         pauseButton.isEnabled = false
 
         for i in 0..<300 {
             initArray[(mesher.jmax/2)*(mesher.imax/2)+i] = 1.0
         }
+
+        initializeGrid()
+    }
+
+    private func initializeGrid() {
+        self.iteration = 0
+        iterationLabel.setTitle(String(format: "%i", self.iteration), for: .normal)
         oldArray = initArray
         renderSolution(solution: oldArray)
     }
-    
+
     @IBAction func reset(sender: AnyObject) {
-        oldArray = initArray
-        self.iteration = 0
+        initializeGrid()
     }
     
     @IBAction func startSolver() {
