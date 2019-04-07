@@ -49,6 +49,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
+                                    <action selector="pauseSimulation" destination="BYZ-38-t0r" eventType="touchUpInside" id="Pfm-jv-Geu"/>
                                     <action selector="startSolver" destination="BYZ-38-t0r" eventType="touchUpInside" id="UEN-Cl-i9T"/>
                                 </connections>
                             </button>
@@ -111,8 +112,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="goButton" destination="iaU-9X-rCh" id="bXs-H8-BU7"/>
                         <outlet property="imageView" destination="RZu-TX-0HM" id="Amd-Fe-AbY"/>
                         <outlet property="iterationLabel" destination="TyP-WQ-ZUz" id="kVD-fk-ETE"/>
+                        <outlet property="pauseButton" destination="Rg0-In-Uzl" id="jUw-Xb-aoA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

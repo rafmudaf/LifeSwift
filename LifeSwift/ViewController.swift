@@ -13,25 +13,21 @@ class ViewController: UIViewController {
     
     var oldArray = Array(repeating: 0.0, count: mesher.nmax)
     var initArray = Array(repeating: 0.0, count: mesher.nmax)
+    @IBOutlet weak var goButton: lifeButton!
+    @IBOutlet weak var pauseButton: lifeButton!
     @IBOutlet weak var iterationLabel: lifeButton!
     
+    var timer: Timer?
     var iteration: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         iterationLabel.setTitle("0", for: .normal)
+        pauseButton.isEnabled = false
 
         for i in 0..<300 {
             initArray[(mesher.jmax/2)*(mesher.imax/2)+i] = 1.0
         }
-//        initArray[(mesher.jmax/2)*(mesher.imax/2)+mesher.imax/2] = 0.0
-//        initArray[(mesher.jmax/2)*(mesher.imax/2)+1+mesher.imax/2] = 0.0
-//        initArray[(mesher.jmax/2)*(mesher.imax/2)-1-mesher.imax/2] = 0.0
-//        initArray[(mesher.jmax/2)*(mesher.imax/2)-1+mesher.imax/2] = 0.0
-//        initArray[(mesher.jmax/2)*(mesher.imax/2)-mesher.imax/2] = 0.0
-//        initArray[(mesher.jmax/2)*(mesher.imax/2)+mesher.imax+mesher.imax/2] = 0.0
-
         oldArray = initArray
         renderSolution(solution: oldArray)
     }
@@ -42,24 +38,44 @@ class ViewController: UIViewController {
     }
     
     @IBAction func startSolver() {
-        Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ViewController.runSimulation), userInfo: nil, repeats: true)
+        goButton.isEnabled = false
+        pauseButton.isEnabled = true
+        DispatchQueue.global(qos: .userInitiated).sync {
+            if self.timer == nil {
+                self.timer = Timer.scheduledTimer(
+                    timeInterval: 0.4,
+                    target: self,
+                    selector: #selector(ViewController.runSimulation),
+                    userInfo: nil,
+                    repeats: true
+                )
+            }
+        }
     }
     
     @objc func runSimulation () {
-
         let results = solve()
-
         self.iteration = self.iteration + 1
-
         if (self.iteration%1 == 0) {
             iterationLabel.setTitle(String(format: "%i", self.iteration), for: .normal)
         }
-
-        renderSolution(solution: results)
-
+        DispatchQueue.main.async {
+            self.renderSolution(solution: results)
+        }
         oldArray = results
     }
-        
+
+    @IBAction func pauseSimulation() {
+        goButton.isEnabled = true
+        pauseButton.isEnabled = false
+        DispatchQueue.global(qos: .userInitiated).sync {
+            if self.timer != nil {
+                self.timer!.invalidate()
+                self.timer = nil
+            }
+        }
+    }
+
     @objc func solve () -> [Double] {
         var newArray = Array(repeating: 0.0, count: mesher.nmax)
         for i in 0..<oldArray.count {
