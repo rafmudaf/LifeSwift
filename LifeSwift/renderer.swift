@@ -1,6 +1,6 @@
 //
 //  renderer.swift
-//  MetalCFD
+//  LifeSwift
 //
 //  Created by Rafael M Mudafort on 3/24/16.
 //  Copyright © 2016 Rafael M Mudafort. All rights reserved.
