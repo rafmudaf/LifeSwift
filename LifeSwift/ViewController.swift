@@ -40,10 +40,10 @@ class ViewController: UIViewController {
     @IBAction func startSolver() {
         goButton.isEnabled = false
         pauseButton.isEnabled = true
-        DispatchQueue.global(qos: .userInitiated).sync {
+        DispatchQueue.global(qos: .userInteractive).sync {
             if self.timer == nil {
                 self.timer = Timer.scheduledTimer(
-                    timeInterval: 0.4,
+                    timeInterval: 0.1,
                     target: self,
                     selector: #selector(ViewController.runSimulation),
                     userInfo: nil,
@@ -68,7 +68,7 @@ class ViewController: UIViewController {
     @IBAction func pauseSimulation() {
         goButton.isEnabled = true
         pauseButton.isEnabled = false
-        DispatchQueue.global(qos: .userInitiated).sync {
+        DispatchQueue.global(qos: .userInteractive).sync {
             if self.timer != nil {
                 self.timer!.invalidate()
                 self.timer = nil
