@@ -18,9 +18,9 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         iterationLabel.text = "0"
-        
+
         for i in 0..<300 {
             initArray[(mesher.jmax/2)*(mesher.imax/2)+i] = 0.0
         }
@@ -41,12 +41,26 @@ class ViewController: UIViewController {
     }
     
     @IBAction func startSolver() {
-        Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ViewController.solve), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ViewController.runSimulation), userInfo: nil, repeats: true)
     }
     
-    @objc func solve () {
-        var newArray = Array(repeating: 0.0, count: mesher.nmax)
+    @objc func runSimulation () {
+
+        let results = solve()
+
+        self.iteration = self.iteration + 1
+
+        if (self.iteration%1 == 0) {
+            iterationLabel.text = String(format: "%i", self.iteration)
+        }
+
+        renderSolution(solution: results)
+
+        oldArray = results
+    }
         
+    @objc func solve () -> [Double] {
+        var newArray = Array(repeating: 0.0, count: mesher.nmax)
         for i in 0..<oldArray.count {
             var count: Double = 0
 
@@ -91,16 +105,7 @@ class ViewController: UIViewController {
                 newArray[i] = 1.0
             }
         }
-
-        self.iteration = self.iteration + 1
-        
-        if (self.iteration%1 == 0) {
-            iterationLabel.text = String(format: "%i", self.iteration)
-        }
-        
-        renderSolution(solution: newArray)
-
-        oldArray = newArray
+        return newArray
     }
     
     func renderSolution(solution: [Double]) {
