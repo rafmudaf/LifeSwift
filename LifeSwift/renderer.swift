@@ -24,8 +24,8 @@ private func imageFromARGB32Bitmap(pixels: [PixelData], width: Int, height: Int)
     let bitsPerComponent: Int = 8
     let bitsPerPixel: Int = 32
 
-    var data = pixels // Copy to mutable []
-    let providerRef = CGDataProvider(data: NSData(bytes: &data, length: data.count * MemoryLayout<PixelData>.size))
+    var data = pixels  // Copy to mutable []
+    let providerRef = CGDataProvider(data: NSData(bytes: &data, length: data.count * MemoryLayout<PixelData>.stride))
 
     let cgim = CGImage(
         width: width,
@@ -45,14 +45,14 @@ private func imageFromARGB32Bitmap(pixels: [PixelData], width: Int, height: Int)
 }
 
 func render(solution: [Double]) -> UIImage {
-    var pixelArray = Array(repeating: PixelData(a: 255, r:255, g: 255, b: 255), count: solution.count)
+    var pixelArray = Array(repeating: PixelData(a: 255, r:255, g: 0, b: 255), count: solution.count)
     let numCells: Int = solution.count
     
     for i in 0..<numCells
     {
-        pixelArray[i].r = UInt8(Double(pixelArray[i].r)*solution[i])
-        pixelArray[i].g = UInt8(Double(pixelArray[i].g)*solution[i])
-        pixelArray[i].b = UInt8(Double(pixelArray[i].b)*solution[i])
+        pixelArray[i].r = UInt8(Double(pixelArray[i].r) * solution[i])
+        pixelArray[i].g = UInt8(Double(pixelArray[i].g) * solution[i])
+        pixelArray[i].b = UInt8(Double(pixelArray[i].b) * solution[i])
     }
     
     let outputImage = imageFromARGB32Bitmap(pixels: pixelArray, width: mesher.imax, height: mesher.jmax)
