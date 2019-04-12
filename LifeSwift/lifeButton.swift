@@ -25,7 +25,7 @@ public class RectBorderButton: UIButton {
         let paddingTopBottom: CGFloat = 16.0
         
         let size = self.titleLabel!.text!.size(
-            withAttributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: self.titleLabel!.font.pointSize)]
+            withAttributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: self.titleLabel!.font.pointSize)]
         )
         
         self.frame.size = CGSize(

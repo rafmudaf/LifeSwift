@@ -9,12 +9,13 @@
 import Foundation
 
 struct mesher {
-    static var dx = 1.0
-    static var dy = 1.0
-    static var xmax = 100.0
-    static var ymax = 100.0
-    
-    static var imax: Int = Int(xmax/dx)
-    static var jmax: Int = Int(ymax/dy)
-    static var nmax: Int = imax*jmax
+    static var xdim = 500
+    static var ydim = 500
+    static var xres_max = 50
+    static var yres_max = 50
+    static var xres = 25
+    static var yres = 25
+    static var n = xres * yres
+    var xpixSize = xdim/xres;
+    var ypixSize = ydim/yres;
 }

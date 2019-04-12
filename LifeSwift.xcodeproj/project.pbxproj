@@ -12,6 +12,7 @@
 		402B300822580CF800737A88 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 402B300622580CF800737A88 /* Main.storyboard */; };
 		402B300A22580CFA00737A88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 402B300922580CFA00737A88 /* Assets.xcassets */; };
 		402B300D22580CFA00737A88 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 402B300B22580CFA00737A88 /* LaunchScreen.storyboard */; };
+		4052AF2D225F152200CE25D8 /* LifeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4052AF2C225F152200CE25D8 /* LifeCell.swift */; };
 		4078AE9622581611002E5817 /* lifeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4078AE9222581611002E5817 /* lifeButton.swift */; };
 		4078AE9722581611002E5817 /* mesher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4078AE9322581611002E5817 /* mesher.swift */; };
 		4078AE9822581611002E5817 /* renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4078AE9422581611002E5817 /* renderer.swift */; };
@@ -25,6 +26,7 @@
 		402B300922580CFA00737A88 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		402B300C22580CFA00737A88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		402B300E22580CFA00737A88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4052AF2C225F152200CE25D8 /* LifeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeCell.swift; sourceTree = "<group>"; };
 		4078AE9222581611002E5817 /* lifeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lifeButton.swift; sourceTree = "<group>"; };
 		4078AE9322581611002E5817 /* mesher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mesher.swift; sourceTree = "<group>"; };
 		4078AE9422581611002E5817 /* renderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = renderer.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				402B300922580CFA00737A88 /* Assets.xcassets */,
 				402B300B22580CFA00737A88 /* LaunchScreen.storyboard */,
 				402B300E22580CFA00737A88 /* Info.plist */,
+				4052AF2C225F152200CE25D8 /* LifeCell.swift */,
 			);
 			path = LifeSwift;
 			sourceTree = "<group>";
@@ -145,6 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				402B300522580CF800737A88 /* ViewController.swift in Sources */,
+				4052AF2D225F152200CE25D8 /* LifeCell.swift in Sources */,
 				4078AE9622581611002E5817 /* lifeButton.swift in Sources */,
 				402B300322580CF800737A88 /* AppDelegate.swift in Sources */,
 				4078AE9822581611002E5817 /* renderer.swift in Sources */,

@@ -9,10 +9,17 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
     @IBOutlet weak var imageView: UIImageView!
     
-    var oldArray = Array(repeating: 0.0, count: mesher.nmax)
-    var initArray = Array(repeating: 0.0, count: mesher.nmax)
+    var oldCellArray = Array(repeating: LifeCell(value: 0), count: mesher.n)
+    var initCellArray = Array(repeating: LifeCell(value: 0), count: mesher.n)
+    let renderer = Renderer(
+        xdim: mesher.xdim,
+        ydim: mesher.ydim,
+        xres: mesher.xres,
+        yres: mesher.yres
+    )
     @IBOutlet weak var goButton: lifeButton!
     @IBOutlet weak var pauseButton: lifeButton!
     @IBOutlet weak var iterationLabel: lifeButton!
@@ -25,17 +32,17 @@ class ViewController: UIViewController {
         pauseButton.isEnabled = false
 
         for i in 0..<300 {
-            initArray[(mesher.jmax/2)*(mesher.imax/2)+i] = 1.0
+            initCellArray[(mesher.yres/2)*(mesher.xres/2)+i] = LifeCell(value: 1)
         }
-
+    
         initializeGrid()
     }
 
     private func initializeGrid() {
         self.iteration = 0
         iterationLabel.setTitle(String(format: "%i", self.iteration), for: .normal)
-        oldArray = initArray
-        renderSolution(solution: oldArray)
+        oldCellArray = initCellArray
+        renderSolution(solution: oldCellArray)
     }
 
     @IBAction func reset(sender: AnyObject) {
@@ -67,7 +74,7 @@ class ViewController: UIViewController {
         DispatchQueue.main.async {
             self.renderSolution(solution: results)
         }
-        oldArray = results
+        oldCellArray = results
     }
 
     @IBAction func pauseSimulation() {
@@ -81,56 +88,56 @@ class ViewController: UIViewController {
         }
     }
 
-    @objc func solve () -> [Double] {
-        var newArray = Array(repeating: 0.0, count: mesher.nmax)
-        for i in 0..<oldArray.count {
-            var count: Double = 0
+    func solve () -> [LifeCell] {
+        var newArray = Array(repeating: LifeCell(value: 0), count: mesher.n)
+        for i in 0..<oldCellArray.count {
+            var count: Int = 0
 
-            let top = Int(i/mesher.imax) == 0
-            let right = (i+1)%(mesher.imax) == 0
-            let bottom = i/mesher.imax == (mesher.imax-1)
-            let left = i%mesher.imax == 0
+            let top = Int(i/mesher.xres) == 0
+            let right = (i+1)%(mesher.xres) == 0
+            let bottom = i/mesher.xres == (mesher.xres-1)
+            let left = i%mesher.xres == 0
 
             if (!top && !right && !bottom && !left) {
-                let leftdown = i-mesher.imax-1
+                let leftdown = i-mesher.xres-1
                 let left = i-1
-                let leftup = i+mesher.imax-1
-                let up = i+mesher.imax
-                let rightup = i+mesher.imax+1
+                let leftup = i+mesher.xres-1
+                let up = i+mesher.xres
+                let rightup = i+mesher.xres+1
                 let right = i+1
-                let rightdown = i-mesher.imax+1
-                let down = i-mesher.imax
+                let rightdown = i-mesher.xres+1
+                let down = i-mesher.xres
 
-                count += oldArray[leftdown]
-                count += oldArray[left]
-                count += oldArray[leftup]
-                count += oldArray[up]
-                count += oldArray[rightup]
-                count += oldArray[right]
-                count += oldArray[rightdown]
-                count += oldArray[down]
+                count += oldCellArray[leftdown].status
+                count += oldCellArray[left].status
+                count += oldCellArray[leftup].status
+                count += oldCellArray[up].status
+                count += oldCellArray[rightup].status
+                count += oldCellArray[right].status
+                count += oldCellArray[rightdown].status
+                count += oldCellArray[down].status
             }
 
             // Any live cell with fewer than two live neighbours dies, as if caused by under-population.
             // cells are initialized dead
 
             // Any live cell with two or three live neighbours lives on to the next generation.
-            if ((count == 2 || count == 3) && oldArray[i] == 1.0) {
-                newArray[i] = 1.0
+            if ((count == 2 || count == 3) && oldCellArray[i].isAlive()) {
+                newArray[i].status = 1.0
             }
 
             // Any live cell with more than three live neighbours dies, as if by over-population.
             // cells are initialized dead
 
             // Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
-            if (count == 3 && oldArray[i] == 0.0) {
-                newArray[i] = 1.0
+            if (count == 3 && !oldCellArray[i].isAlive()) {
+                newArray[i].status = 1.0
             }
         }
         return newArray
     }
     
-    func renderSolution(solution: [Double]) {
-        self.imageView.image = render(solution: solution)
+    func renderSolution(solution: [LifeCell]) {
+        self.imageView.image = renderer.render(solution: solution)
     }
 }
